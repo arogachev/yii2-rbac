@@ -82,6 +82,7 @@ In this case make sure you have include it in your application config:
 
 Example of `permissions.php` content:
 
+```php
 <?php
 return [
     [
@@ -119,6 +120,7 @@ return [
         'description' => 'Sessions management',
     ],
 ];
+```
 
 Example of `children.php` content:
 
