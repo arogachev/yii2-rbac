@@ -1,0 +1,25 @@
+{
+  "name": "arogachev/yii2-rbac",
+  "description": "RBAC management for Yii 2 framework",
+  "keywords": [
+    "yii2",
+    "rbac"
+  ],
+  "homepage": "https://github.com/arogachev/yii2-rbac",
+  "type": "yii2-extension",
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Alexey Rogachev",
+      "email": "arogachev90@gmail.com"
+    }
+  ],
+  "require": {
+    "yiisoft/yii2": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "arogachev\\rbac\\": ""
+    }
+  }
+}
