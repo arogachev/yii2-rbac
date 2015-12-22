@@ -12,7 +12,8 @@ and relations between them through configuration arrays.
 
 - [Installation](#installation)
 - [Features](#features)
-- [RBAC management](#rbac-management)
+- [Configuration arrays](#configuration-arrays)
+- [Data synchronization](#data-synchronization)
 
 ## Installation
 
@@ -39,7 +40,7 @@ to the require section of your `composer.json` file.
 - Assigning permissions to roles
 - Updating descriptions of roles and permissions
 
-## RBAC management
+## Configuration arrays
 
 First of all, you need to create three files for storing RBAC data:
 
@@ -69,6 +70,8 @@ return [
     ],
 ];
 ```
+
+Both `name` and `description` are required for filling.
 
 `default` is not required, but most of the times is needed because some permissions require check without assigning.
 In this case make sure you have include it in your application config:
@@ -122,6 +125,8 @@ return [
 ];
 ```
 
+Both `name` and `description` are required for filling, `rule` is optional.
+
 Example of `children.php` content:
 
 ```php
@@ -142,3 +147,22 @@ return [
     ],
 ];
 ```
+
+## Data synchronization
+
+To synchronize actual RBAC data with configuration arrays data add this to your console application config
+(`config/console.php` for basic application and `console/config/main.php` for advanced application):
+
+```php
+'controllerMap' => [
+    'rbac' => 'arogachev\rbac\controllers\RbacController',
+],
+```
+
+Then you need to run command:
+
+```
+php yii rbac /path/to/your/config
+```
+
+Aliases are supported, so you can write something like `@common/rbac/data` as a parameter.
