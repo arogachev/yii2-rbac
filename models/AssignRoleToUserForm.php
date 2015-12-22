@@ -24,7 +24,7 @@ class AssignRoleToUserForm extends Model
      */
     public function init()
     {
-        $this->role = Rbac::getUserRoleName($this->_user->primaryKey()[0]);
+        $this->role = Rbac::getUserRoleName($this->_user->primaryKey);
 
         Yii::setAlias('@rbac', dirname(__DIR__));
         Yii::$app->i18n->translations['rbac'] = [
@@ -62,10 +62,10 @@ class AssignRoleToUserForm extends Model
     {
         $role = Yii::$app->authManager->getRole($this->role);
 
-        Yii::$app->authManager->revokeAll($this->_user->primaryKey()[0]);
+        Yii::$app->authManager->revokeAll($this->_user->primaryKey);
 
         if ($this->role) {
-            Yii::$app->authManager->assign($role, $this->_user->primaryKey()[0]);
+            Yii::$app->authManager->assign($role, $this->_user->primaryKey);
         }
     }
 
