@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 <?php $form = ActiveForm::begin(); ?>
 
 <?= $form->field($model, 'role')->dropDownList(Rbac::getRolesMap(), [
-    'prompt' => Yii::t('rbac', 'Without any roles'),
+    'prompt' => Yii::t('rbac', 'Without role'),
 ]) ?>
 
 <div class="form-group">
