@@ -142,7 +142,7 @@ return [
     'operator' => [
         'users.avatar.upload',
         'users.password.change',
-        'dispatching.access',
+        'dispatching-room.access',
         'chat.access',
     ],
 ];
