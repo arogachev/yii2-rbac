@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = Yii::t('rbac', 'Assigning role');
 
     <div class="row">
         <div class="col-lg-5">
-            <?= $this->render('_assign_role-form', ['model' => $model]) ?>
+            <?= $this->render('_assign-role-form', ['model' => $model]) ?>
         </div>
     </div>
 </div>
