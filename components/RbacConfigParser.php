@@ -62,10 +62,6 @@ class RbacConfigParser extends Object
         foreach ($this->getConfig('roles') as $roleConfig) {
             $existingRole = $this->authManager->getRole($roleConfig['name']);
             if ($existingRole) {
-                if ($roleConfig['name'] == $existingRole->name) {
-                    continue;
-                }
-
                 $existingRole->description = $roleConfig['description'];
                 $this->authManager->update($roleConfig['name'], $existingRole);
             } else {
@@ -83,7 +79,7 @@ class RbacConfigParser extends Object
     {
         foreach ($this->getConfig('permissions') as $permissionConfig) {
             $existingPermission = $this->authManager->getPermission($permissionConfig['name']);
-            if ($existingPermission && $permissionConfig['name'] == $existingPermission->name) {
+            if ($existingPermission) {
                 $permission = $existingPermission;
                 $permission->description = $permissionConfig['description'];
                 $this->authManager->update($permissionConfig['name'], $permission);
