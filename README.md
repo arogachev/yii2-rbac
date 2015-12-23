@@ -132,6 +132,9 @@ Example of `children.php` content:
 ```php
 <?php
 return [
+    'default' => [
+        'users.password.change',
+    ],
     'admin' => [
         'users.manage',
         'users.avatar.upload.all',
@@ -141,7 +144,6 @@ return [
     ],
     'operator' => [
         'users.avatar.upload',
-        'users.password.change',
         'dispatching-room.access',
         'chat.access',
     ],
