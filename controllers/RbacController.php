@@ -14,12 +14,17 @@ class RbacController extends Controller
     public $defaultAction = 'update';
 
     /**
-     * Update data from configuration
-     * @param string $configPath
+     * @var array Options for RbacConfigParser
+     * @see RbacConfigParser
      */
-    public function actionUpdate($configPath)
+    public $parserOptions = [];
+
+    /**
+     * Update data from configuration
+     */
+    public function actionUpdate()
     {
-        $parser = new RbacConfigParser(['configPath' => $configPath]);
+        $parser = new RbacConfigParser($this->parserOptions);
         $parser->fill();
     }
 }

@@ -157,14 +157,21 @@ To synchronize actual RBAC data with configuration arrays data add this to your 
 
 ```php
 'controllerMap' => [
-    'rbac' => 'arogachev\rbac\controllers\RbacController',
+    'rbac' => [
+        'class' => 'arogachev\rbac\controllers\RbacController',
+        'parserOptions' => [
+            'configPath' => '@common/rbac/data',
+        ],
+    ],
 ],
 ```
 
 Then you need to run command:
 
 ```
-php yii rbac /path/to/your/config
+php yii rbac
 ```
 
-Aliases are supported, so you can write something like `@common/rbac/data` as a parameter.
+List of available options in `parserOptions`:
+
+- `$configPath` - full path to folder with config files. Aliases are supported. Required for filling.
