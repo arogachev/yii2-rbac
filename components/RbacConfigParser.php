@@ -81,8 +81,8 @@ class RbacConfigParser extends Object
      */
     protected function fillPermissions()
     {
-        Yii::$app->authManager->removeAllPermissions();
-        Yii::$app->authManager->removeAllRules();
+        $this->authManager->removeAllPermissions();
+        $this->authManager->removeAllRules();
 
         foreach ($this->getConfig('permissions') as $permissionConfig) {
             $permission = $this->authManager->createPermission($permissionConfig['name']);
