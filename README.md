@@ -15,6 +15,7 @@ and relations between them through configuration arrays.
 - [Configuration arrays](#configuration-arrays)
 - [Data synchronization](#data-synchronization)
 - [Rules](#rules)
+- [GUI](#gui)
 
 ## Installation
 
@@ -179,7 +180,7 @@ List of available options in `parserOptions`:
 
 ## Rules
 
-Extension provides `arogachev\rules\CorrespondingUserRule` that can be used to only allow
+Extension provides `arogachev\rbac\rules\CorrespondingUserRule` that can be used to only allow
 user to edit his own posts, etc. It's similar to `AuthorRule` described in official docs [here](http://www.yiiframework.com/doc-2.0/guide-security-authorization.html#using-rules).
 You can attach it to permission as shown above, and use it in action as follows:
 
@@ -213,3 +214,55 @@ Available params:
 
 In case of using advanced application it's recommended to place common rules like that in `common/rbac/rules`.
 More specific rules can be placed inside of according modules.
+
+## GUI
+
+You can use `AssignRoleToUserForm` for assigning role to user.
+Example of action (you can place it in `UsersController`):
+
+```php
+use arogachev\rbac\models\AssignRoleToUserForm;
+
+...
+
+/**
+ * Assign RBAC role to user
+ * @param integer $id
+ * @return string|\yii\web\Response
+ * @throws NotFoundHttpException
+ */
+public function actionAssignRole($id)
+{
+    $user = $this->findModel($id);
+    $model = new AssignRoleToUserForm(['user' => $user]);
+
+    if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+        $model->assignRole();
+
+        return $this->redirect('index');
+    }
+
+    return $this->render('@rbac/views/users/assign-role', ['model' => $model]);
+}
+```
+
+There are also `assign-role` and `_assign-role-form` (partial) views that you can use. It's for Bootstrap,
+if it don't fit your needs you can copy and modify how you want, it's just a template.
+
+To create a link for that action, most of the times, extending `GridView` `ActionColumn` is enough:
+
+```php
+[
+    'class' => ActionColumn::className(),
+    'template' => '{view} {update} {assign-role} {delete}',
+    'buttons' => [
+        'assign-role' => function ($url, $model, $key) {
+            return Html::a('<span class="glyphicon glyphicon-link"></span>', $url, [
+                'title' => 'Assign role',
+                'aria-label' => 'Assign role',
+                'data-pjax' => '0',
+            ]);
+        },
+    ],
+],
+```
