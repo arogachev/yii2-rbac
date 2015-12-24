@@ -38,9 +38,11 @@ to the require section of your `composer.json` file.
 ## Features
 
 - Adding new roles and permissions with descriptions
+- Updating permissions names, descriptions and rules
+- Deleting permissions, rules
+- Updating roles descriptions
 - Assigning rules to permissions
 - Assigning permissions to roles
-- Updating descriptions of roles and permissions
 
 ## Configuration arrays
 
