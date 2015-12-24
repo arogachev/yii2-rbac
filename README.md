@@ -247,7 +247,7 @@ public function actionAssignRole($id)
 ```
 
 There are also `assign-role` and `_assign-role-form` (partial) views that you can use. It's for Bootstrap,
-if it don't fit your needs you can copy and modify how you want, it's just a template.
+if it don't fit your needs you can copy it and modify how you want, it's just a template.
 
 To create a link for that action, most of the times, extending `GridView` `ActionColumn` is enough:
 
