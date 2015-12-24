@@ -14,6 +14,7 @@ and relations between them through configuration arrays.
 - [Features](#features)
 - [Configuration arrays](#configuration-arrays)
 - [Data synchronization](#data-synchronization)
+- [Rules](#rules)
 
 ## Installation
 
@@ -175,3 +176,40 @@ php yii rbac
 List of available options in `parserOptions`:
 
 - `$configPath` - full path to folder with config files. Aliases are supported. Required for filling.
+
+## Rules
+
+Extension provides `arogachev\rules\CorrespondingUserRule` that can be used to only allow
+user to edit his own posts, etc. It's similar to `AuthorRule` described in official docs [here](http://www.yiiframework.com/doc-2.0/guide-security-authorization.html#using-rules).
+You can attach it to permission as shown above, and use it in action as follows:
+
+```php
+/**
+ * @param integer $id
+ * @return string|\yii\web\Response
+ * @throws BadRequestHttpException
+ * @throws NotFoundHttpException
+ */
+public function actionUploadAvatar($id)
+{
+    $model = $this->findModel($id);
+    if (!Yii::$app->user->can('users.avatar.upload.all') && !Yii::$app->user->can('users.avatar.upload', [
+        'model' => $model,
+        'attribute' => 'id',
+    ])) {
+        throw new BadRequestHttpException('You are not allowed to upload avatar for this user.');
+    }
+
+    ...
+}
+```
+
+Use the related permission after the model was found.
+
+Available params:
+
+- `$model` - Model used for checking. Required for filling.
+- `attribute` - The attribute name containing user id. Defaults to `author_id`.
+
+In case of using advanced application it's recommended to place common rules like that in `common/rbac/rules`.
+More specific rules can be placed inside of according modules.
