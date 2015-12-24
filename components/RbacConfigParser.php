@@ -62,7 +62,7 @@ class RbacConfigParser extends Object
         foreach ($this->getConfig('roles') as $roleConfig) {
             $existingRole = $this->authManager->getRole($roleConfig['name']);
             if ($existingRole) {
-                if ($roleConfig['name'] == $existingRole->name) {
+                if ($roleConfig['description'] == $existingRole->description) {
                     continue;
                 }
 
