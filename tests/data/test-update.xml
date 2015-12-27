@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <table name="auth_item">
+        <column>name</column>
+        <column>type</column>
+        <column>description</column>
+        <column>rule_name</column>
+        <row>
+            <value>admin</value>
+            <value>1</value>
+            <value>Administrator</value>
+            <null />
+        </row>
+        <row>
+            <value>default</value>
+            <value>1</value>
+            <value>Default Role</value>
+            <null />
+        </row>
+        <row>
+            <value>dispatching-room.access</value>
+            <value>2</value>
+            <value>Access to dispatching room</value>
+            <null />
+        </row>
+        <row>
+            <value>manager</value>
+            <value>1</value>
+            <value>Manager</value>
+            <null />
+        </row>
+        <row>
+            <value>sessions.access</value>
+            <value>2</value>
+            <value>Sessions management</value>
+            <null />
+        </row>
+        <row>
+            <value>settings.manage</value>
+            <value>2</value>
+            <value>Settings management</value>
+            <null />
+        </row>
+        <row>
+            <value>users.avatar.upload</value>
+            <value>2</value>
+            <value>Upload avatar for user</value>
+            <value>correspondingUser</value>
+        </row>
+        <row>
+            <value>users.manage</value>
+            <value>2</value>
+            <value>Users management</value>
+            <null />
+        </row>
+        <row>
+            <value>users.password.change</value>
+            <value>2</value>
+            <value>Change password for user</value>
+            <value>correspondingUser</value>
+        </row>
+        <row>
+            <value>users.password.change.all</value>
+            <value>2</value>
+            <value>Change password for any user</value>
+            <null />
+        </row>
+    </table>
+</dataset>
