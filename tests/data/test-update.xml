@@ -24,15 +24,15 @@
             <null />
         </row>
         <row>
-            <value>manager</value>
+            <value>operator</value>
             <value>1</value>
-            <value>Manager</value>
+            <value>Operator</value>
             <null />
         </row>
         <row>
             <value>sessions.access</value>
             <value>2</value>
-            <value>Sessions management</value>
+            <value>Sessions access</value>
             <null />
         </row>
         <row>
@@ -64,6 +64,44 @@
             <value>2</value>
             <value>Change password for any user</value>
             <null />
+        </row>
+    </table>
+    <table name="auth_item_child">
+        <column>parent</column>
+        <column>child</column>
+        <row>
+            <value>operator</value>
+            <value>dispatching-room.access</value>
+        </row>
+        <row>
+            <value>admin</value>
+            <value>sessions.access</value>
+        </row>
+        <row>
+            <value>admin</value>
+            <value>settings.manage</value>
+        </row>
+        <row>
+            <value>operator</value>
+            <value>users.avatar.upload</value>
+        </row>
+        <row>
+            <value>admin</value>
+            <value>users.manage</value>
+        </row>
+        <row>
+            <value>default</value>
+            <value>users.password.change</value>
+        </row>
+        <row>
+            <value>admin</value>
+            <value>users.password.change.all</value>
+        </row>
+    </table>
+    <table name="auth_rule">
+        <column>name</column>
+        <row>
+            <value>correspondingUser</value>
         </row>
     </table>
 </dataset>

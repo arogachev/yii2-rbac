@@ -29,6 +29,6 @@ return [
     ],
     [
         'name' => 'sessions.access',
-        'description' => 'Sessions management',
+        'description' => 'Sessions access',
     ],
 ];

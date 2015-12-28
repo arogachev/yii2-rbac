@@ -10,7 +10,7 @@ return [
         'description' => 'Administrator',
     ],
     [
-        'name' => 'manager',
-        'description' => 'Manager',
+        'name' => 'operator',
+        'description' => 'Operator',
     ],
 ];

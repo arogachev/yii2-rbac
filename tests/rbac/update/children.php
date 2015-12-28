@@ -10,7 +10,7 @@ return [
         'settings.manage',
         'sessions.access',
     ],
-    'manager' => [
+    'operator' => [
         'users.avatar.upload',
         'dispatching-room.access',
     ],
