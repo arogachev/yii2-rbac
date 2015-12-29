@@ -15,7 +15,7 @@ class RbacUpdateTest extends DataBaseTestCase
         return $this->createXMLDataSet(__DIR__ . '/data/init.xml');
     }
 
-    public function testUdpate()
+    public function testUpdate()
     {
         $options = [
             'configPath' => '@tests/rbac/update',
