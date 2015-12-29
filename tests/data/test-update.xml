@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <table name="auth_item">
+        <column>name</column>
+        <column>type</column>
+        <column>description</column>
+        <column>rule_name</column>
+        <row>
+            <value>admin</value>
+            <value>1</value>
+            <value>Administrator</value>
+            <null />
+        </row>
+        <row>
+            <value>default</value>
+            <value>1</value>
+            <value>Default Role</value>
+            <null />
+        </row>
+        <row>
+            <value>dispatching-room.access</value>
+            <value>2</value>
+            <value>Access to dispatching room</value>
+            <null />
+        </row>
+        <row>
+            <value>operator</value>
+            <value>1</value>
+            <value>Operator</value>
+            <null />
+        </row>
+        <row>
+            <value>sessions.access</value>
+            <value>2</value>
+            <value>Sessions access</value>
+            <null />
+        </row>
+        <row>
+            <value>settings.manage</value>
+            <value>2</value>
+            <value>Settings management</value>
+            <null />
+        </row>
+        <row>
+            <value>users.avatar.upload</value>
+            <value>2</value>
+            <value>Upload avatar for user</value>
+            <value>correspondingUser</value>
+        </row>
+        <row>
+            <value>users.manage</value>
+            <value>2</value>
+            <value>Users management</value>
+            <null />
+        </row>
+        <row>
+            <value>users.password.change</value>
+            <value>2</value>
+            <value>Change password for user</value>
+            <value>correspondingUser</value>
+        </row>
+        <row>
+            <value>users.password.change.all</value>
+            <value>2</value>
+            <value>Change password for any user</value>
+            <null />
+        </row>
+    </table>
+    <table name="auth_item_child">
+        <column>parent</column>
+        <column>child</column>
+        <row>
+            <value>operator</value>
+            <value>dispatching-room.access</value>
+        </row>
+        <row>
+            <value>admin</value>
+            <value>sessions.access</value>
+        </row>
+        <row>
+            <value>admin</value>
+            <value>settings.manage</value>
+        </row>
+        <row>
+            <value>operator</value>
+            <value>users.avatar.upload</value>
+        </row>
+        <row>
+            <value>admin</value>
+            <value>users.manage</value>
+        </row>
+        <row>
+            <value>default</value>
+            <value>users.password.change</value>
+        </row>
+        <row>
+            <value>admin</value>
+            <value>users.password.change.all</value>
+        </row>
+    </table>
+    <table name="auth_rule">
+        <column>name</column>
+        <row>
+            <value>correspondingUser</value>
+        </row>
+    </table>
+</dataset>

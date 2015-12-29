@@ -17,9 +17,13 @@
   "require": {
     "yiisoft/yii2": "*"
   },
+  "require-dev": {
+    "phpunit/phpunit": "~5.1",
+    "phpunit/dbunit": "~2.0"
+  },
   "autoload": {
     "psr-4": {
-      "arogachev\\rbac\\": ""
+      "arogachev\\rbac\\": "src"
     }
   }
 }
